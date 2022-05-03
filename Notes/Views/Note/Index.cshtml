@@ -1,61 +1,76 @@
 ﻿@model IEnumerable<Note>
 
- <div class="myContainer">
-        <h3>
-            Список заметок
-        </h3>
-        <div class="buttonCreateStyle">
-            <button class="iconButton" type="button" onclick="openForm('Note/CreateNote')">
-                <i class="fa-solid fa-plus" title="Добавить заметку"></i>
-            </button>
+       <div class="myContainer">
+            <h3>
+                Список заметок
+            </h3>
+            <div class="buttonCreateStyle">
+                <button class="iconButton" type="button" onclick="openForm('Note/CreateNote')">
+                    <i class="fa-solid fa-plus" title="Добавить заметку"></i>
+                </button>
+            </div>
+            @foreach(var note in Model)
+            {
+            <form class="noteDiscrtiption" method="post" action="Note/DeleteNote">
+                <div id="containerNote" onclick="openForm(this, 'Note/UpdateNote')">
+                    <input hidden name="noteId" id="id" value="@note.Id" />
+                    <h4 id="name">
+                        @note.Name
+                    </h4>
+                    <p id="discription">
+                        @note.Discription
+                    </p>
+                </div>
+                <div class="icons">
+                    <button class="iconButton" type="button" onclick="openForm(this, 'Note/UpdateNote')">
+                        <i class="fa-solid fa-pen-to-square" title="Изменить"></i>
+                    </button>
+                    <button class="iconButton" type="submit">
+                        <i class="fa-solid fa-trash" title="Удалить"></i>
+                    </button>
+                </div>
+            </form>
+            }
         </div>
-        @foreach(var note in Model)
-        {
-        <form class="noteDiscrtiption" method="post" action="Note/DeleteNote">
-            <div id="containerNote" >
-                <input hidden name="noteId" id="id" value="@note.Id" />
-                <h4 id="name">
-                    @note.Name
-                </h4>
-                <p id="discription">
-                    @note.Discription
-                </p>
-            </div>
-            <div class="icons">
-                <button class="iconButton" type="button" onclick="openForm(this, 'Note/UpdateNote')">
-                    <i class="fa-solid fa-pen-to-square" title="Изменить"></i>
-                </button>
-                <button class="iconButton" type="submit">
-                    <i class="fa-solid fa-trash" title="Удалить"></i>
-                </button>
-            </div>
-        </form>
-        }
-    </div>
 
-    <div id="modelWindowForm" class="noteForm" onclick="$('#modelWindowForm').removeClass('active')">  
-        <div class="noteFormContent" onclick="event.stopPropagation()">
-           <div class="noteFormHeader">
-               <span >
-                   Заметка
-               </span>
-               <button class="btn-close" onclick="$('#modelWindowForm').removeClass('active')"></button>
-                   </div>
-        <form id="noteForm"  method="post" action="Note/CreateNote">        
-        <input hidden type="text" name="Id"/>
-        <label>
-            Заголовок
-        </label>
-        <input type="text" name="Name"/>
-         <label>
-            Описание
-        </label>
-        <input type="text" name="Discription"/>
-        <button type="submit">
-            Ок
-        </button>
-    </form>
-   </div>
-    </div>
+        <div id="modelWindowForm" class="noteForm" onclick="$('#modelWindowForm').removeClass('active')">
+            <div class="noteFormContent" onclick="event.stopPropagation()">
+                <div class="noteFormHeader">
+                    <span>
+                        Заметка
+                    </span>
+                    <button class="btn-close" onclick="$('#modelWindowForm').removeClass('active')"></button>
+                </div>
+                <div class="iconsTollBar">
+                    <button class="iconToll" type="submit">
+                     <i class="fa-solid fa-bold" title="Жирный"></i>
+                    </button>
+                    <button class="iconToll" type="submit">
+                        <i class="fa-solid fa-italic" title="Курсив"></i>
+                    </button>
+                    <button class="iconToll" type="submit">
+                        <i class="fa-solid fa-underline" title="Подчеркнутый"></i>
+                    </button>
+                </div>
+                <form id="noteForm" method="post" action="Note/CreateNote">
+                    <input hidden type="text" name="Id" />
+                    <div class="group">
+                        <input type="text" name="Name" required />
+                        <span class="highlight"></span>
+                        <span class="bar">
+                        </span>
+                        <label>Название</label>
+                    </div>
+                    <div>
+                        <textarea class="txta" placeholder="Текст тут" name="Discription" onkeypress="resizeTxta(this)" onkeyup="resizeTxta(this)"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">
+                        Сохранить
+                    </button>
+                </form>
+            </div>
+        </div>
+
+
 
     

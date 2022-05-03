@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
     background: #f1f1f1;
     color: #0f141e;
@@ -44,6 +46,16 @@ h4 {
     justify-content: space-between;
 }
 
+.iconsTollBar{
+    margin-bottom: 10px;
+}
+
+.iconToll {
+    all: unset;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
 .icons {
     margin-left: 20px;
 }
@@ -68,11 +80,14 @@ h4 {
     left: 0;
     display: none;
     background: rgb(0, 0, 0, 0.4);
+    font-size: 20px;
+    font-weight: normal;
+    font-family: "Roboto", sans-serif;
 }
 
 .noteFormContent {
     padding: 24px;
-    background-color: #dbe2ef;
+    background: #f1f1f1;
     border-radius: 4px;
     min-width: 600px;
 }
@@ -88,4 +103,157 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input {
+    background-color: white;
+    font-size: 20px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 1px solid #757575;
+}
+
+    input:focus {
+        outline: none;
+    }
+
+/* LABEL ======================================= */
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+    .bar:before, .bar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: #5264AE;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+    .bar:before {
+        left: 50%;
+    }
+
+    .bar:after {
+        right: 50%;
+    }
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+.txta {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    overflow: auto;
+    background-color: #dddddd;
+    color: #666666;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    outline: none;
+    line-height: 1.4;
+    transition: all 0.2s;
+    max-height: 500px;
+    box-sizing: border-box;
+}
+
+.txta:hover{
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+.txta:focus{
+    cursor: text;
+    color: #333333;
+    background-color: white;
+    border-color: #333333;
 }
