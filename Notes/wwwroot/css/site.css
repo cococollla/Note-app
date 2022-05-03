@@ -1,0 +1,91 @@
+body {
+    background: #f1f1f1;
+    color: #0f141e;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: "Roboto", sans-serif;
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    width: 370px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 10px 0px;
+}
+
+
+h4 {
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+}
+
+.myContainer {
+    max-width: 750px;
+    margin: auto;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.noteDiscrtiption {
+    width: 500px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #0f141e;
+    margin: 10px 0;
+    justify-content: space-between;
+}
+
+.icons {
+    margin-left: 20px;
+}
+
+.iconButton {
+    all: unset;
+    font-size: 25px;
+}
+
+.buttonCreateStyle {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.noteForm {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    background: rgb(0, 0, 0, 0.4);
+}
+
+.noteFormContent {
+    padding: 24px;
+    background-color: #dbe2ef;
+    border-radius: 4px;
+    min-width: 600px;
+}
+
+.noteFormHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom:25px;
+} 
+
+.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
