@@ -47,7 +47,7 @@ h4 {
 }
 
 .iconsTollBar{
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 .iconToll {
@@ -235,25 +235,14 @@ input:focus ~ .highlight {
     height: 100px;
     resize: none;
     overflow: auto;
-    background-color: #dddddd;
+    background-color: white;
     color: #666666;
     border-radius: 5px;
     border: 2px solid transparent;
     outline: none;
     line-height: 1.4;
-    transition: all 0.2s;
     max-height: 500px;
     box-sizing: border-box;
 }
 
-.txta:hover{
-    cursor: pointer;
-    background-color: #eeeeee;
-}
 
-.txta:focus{
-    cursor: text;
-    color: #333333;
-    background-color: white;
-    border-color: #333333;
-}
