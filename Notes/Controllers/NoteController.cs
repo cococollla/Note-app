@@ -26,14 +26,14 @@ namespace Notes.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateNote(Note note)
+        public IActionResult UpdateNote([FromBody] Note note)
         {
             noteService.UpdateNote(note);
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult CreateNote(Note note)
+        public IActionResult CreateNote([FromBody] Note note)
         {
             noteService.AddNote(note);
             return RedirectToAction("Index");

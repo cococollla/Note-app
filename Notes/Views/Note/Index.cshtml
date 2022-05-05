@@ -1,12 +1,13 @@
-﻿@model IEnumerable<Note>
+﻿@using System.Web
+@model IEnumerable<Note>
 
-       <div class="myContainer">
-            <h3>
-                Список заметок
-            </h3>
-            <div class="buttonCreateStyle">
+    <div class="row noteContent">
+       <div class="myContainer col">
+           <div class="containersItem">
+            <div class="buttonCreateStyle noteDiscrtiption">
                 <button class="iconButton" type="button" onclick="openForm(this, 'Note/CreateNote')">
                     <i class="fa-solid fa-plus" title="Добавить заметку"></i>
+                    Новая заметка
                 </button>
             </div>
             @foreach(var note in Model)
@@ -15,11 +16,20 @@
                 <div id="containerNote">
                     <input hidden name="noteId" id="id" value="@note.Id" />
                     <h4 id="name">
-                        @note.Name
+                            @{
+                                if(String.IsNullOrEmpty(note.Name))
+                                {
+                                    note.Name = "Без названия";
+                                }
+                            }
+                            @note.Name
+
                     </h4>
-                    <p id="discription">
-                        @note.Discription
-                    </p>
+                    <div id="discriptionContainer">
+                    <span id="discription" name="fDiscription">
+                        @Html.Raw(HttpUtility.HtmlDecode(@note.Discription))
+                    </span>
+                    </div>
                 </div>
                 <div class="icons">
                     <button class="iconButton" type="button" onclick="openForm(this, 'Note/UpdateNote')">
@@ -31,48 +41,39 @@
                 </div>
             </form>
             }
+            </div>
         </div>
-
-        <div id="modelWindowForm" class="noteForm" onclick="$('#modelWindowForm').removeClass('active')">
-            <div class="noteFormContent" onclick="event.stopPropagation()">
-                <div class="noteFormHeader">
-                    <span>
-                        Заметка
-                    </span>
-                    <button class="btn-close" onclick="$('#modelWindowForm').removeClass('active')"></button>
-                </div>
+        <div class="col">
+            <div class="noteFormContent ">
                 <form id="noteForm" method="post" action="Note/CreateNote">
-                    <input hidden type="text" name="Id" />
+                    <input hidden type="text" name="Id" id="noteID"/>
                     <div class="group">
-                        <input type="text" name="Name" required />
+                        <input type="text" name="Name" id="noteName" required />
                         <span class="highlight"></span>
                         <span class="bar">
                         </span>
                         <label>Название</label>
                     </div>
                     <div>
-                        <div class="iconsTollBar">
-                    <button class="iconToll" id="jBold" type="button">
-                     <i class="fa-solid fa-bold" title="Жирный"></i>
-                    </button>
-                    <button class="iconToll" type="button">
-                        <i class="fa-solid fa-italic" title="Курсив"></i>
-                    </button>
-                    <button class="iconToll" type="button">
-                        <i class="fa-solid fa-underline" title="Подчеркнутый"></i>
-                    </button>
-                </div>
-                    <div>
-                        <textarea id="txtarea" class="txta" placeholder="Текст тут" name="Discription" onkeypress="resizeTxta(this)" onkeyup="resizeTxta(this)"></textarea>
+                        <div class="toolbar">
+                            <a href="#" id="jBold" class="toolbar-b fas fa-bold" title="Жирный"></a>
+                            <a href="#" id="jItalic" class="toolbar-i fas fa-italic" title="Курсив"></a>
+                            <a href="#" id="jUnderline" class="toolbar-u fas fa-underline" title="Подчёркнутый"></a>
+                            <a href="#" id="aLeft" class="toolbar-left fas fa-align-left" title="по левому краю"></a>
+                            <a href="#" id="aCenter" class="toolbar-center fas fa-align-center" title="по центру"></a>
+                            <a href="#" id="aRight" class="toolbar-right fas fa-align-right" title="по правому краю"></a>
+                        </div>
+
+                        <div class="editor" name="Discription" id="discriptionNote" contenteditable="true"></div>
                     </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-3">
-                        Сохранить
+                    <p hidden id="alert" style="color: red; font-size: 12px;">Заполните хотябы одно поле</p>
+                    <button id="superButton" type="button" class="btn btn-primary mb-3 mt-2" onclick="submitFormNote()">
+                        Создать
                     </button>
                 </form>
-            </div>
+             </div>
+          </div>
         </div>
-
 
 
     

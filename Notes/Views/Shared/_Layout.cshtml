@@ -10,21 +10,17 @@
     <link rel="stylesheet" href="~/Notes.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        
-    </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-      
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js">
     </script>
     <script src="~/js/note.js">
+    </script>
+    <script src="~/js/noteApi.js">
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

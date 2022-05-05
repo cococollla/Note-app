@@ -49,7 +49,7 @@ namespace Notes.Services.NoteService
         {
             if (!Context.Notes.Any())
             {
-                Context.Notes.Add(new Note() { Name = "Заметка 0", Discription = "Привет, я буду тут, пока ты не удалишь меня" });
+                Context.Notes.Add(new Note() { Name = "Заметка 0", Discription = "Привет ^_^" });
             }
 
             Context.SaveChanges();

@@ -10,12 +10,10 @@ builder.Services.AddTransient<INoteService, NoteService>(); //Принимает класс се
 
 var configuration = builder.Configuration; // Получение класса конфигурации
 
-var connection = configuration.GetConnectionString("DefualtConnection"); // Берем строку подключения из файла
+var connection = configuration.GetConnectionString("DefualtConnectionSQLite"); // Берем строку подключения из файла
 
-builder.Services.AddDbContext<ApplicationContext>(opt =>
-{
-    opt.UseSqlServer(connection);
-}); // Подключение к sql server
+builder.Services.AddDbContext<ApplicationContext>();
+// Подключение к sql server
 
 builder.Services.AddScoped<ApplicationContext>();
 

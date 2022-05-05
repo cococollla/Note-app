@@ -6,10 +6,10 @@
     public class Note
     {
         public int Id { get; set; }
-        public string Name { get; set; } //Заголовок
+        public string Name { get; set; }
         public string Discription { get; set; }
         public Note() { }
-        public Note(int id, string name, string discription) 
+        public Note(int id, string name, string discription)
         {
             Name = name;
             Discription = discription;

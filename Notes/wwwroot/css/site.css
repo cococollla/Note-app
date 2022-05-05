@@ -12,39 +12,52 @@ h3 {
     margin: 0;
 }
 
-p {
-    width: 370px;
+#discriptionContainer {
+    max-height: 25px;
+    max-width: 370px;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
     margin: 10px 0px;
 }
 
+.noteContent {
+    padding: 25px;
+}
 
 h4 {
     margin-top: 20px !important;
     margin-bottom: 0 !important;
 }
 
+.containersItem {
+    width: 100%;
+    max-width: inherit;
+    height: 100%;
+}
+
 .myContainer {
-    max-width: 750px;
-    margin: auto;
-    padding-top: 30px;
+    max-width: 30em;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 0;
 }
 
 .noteDiscrtiption {
-    width: 500px;
+    width: 535px;
+    height: 95px;
     padding: 0 25px;
     display: flex;
     align-items: center;
-    border-radius: 10px;
-    border: 1px solid #0f141e;
-    margin: 10px 0;
+    border-bottom: 1px solid #e4e4e4;
     justify-content: space-between;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    margin-bottom: 15px;
+    background: white;
 }
+
+    .noteDiscrtiption:hover{
+        background-color: #f2f2f2;
+    }
 
 .iconsTollBar{
     margin: 10px 0;
@@ -68,8 +81,12 @@ h4 {
 .buttonCreateStyle {
     display: flex;
     justify-content: flex-start;
-    margin-top: 10px;
+    background: white;
 }
+
+    .buttonCreateStyle:hover{
+        background-color: #f2f2f2;
+    }
 
 .noteForm {
     display: none;
@@ -86,10 +103,15 @@ h4 {
 }
 
 .noteFormContent {
-    padding: 24px;
-    background: #f1f1f1;
-    border-radius: 4px;
-    min-width: 600px;
+    background: white;
+    width: 700px;
+    margin-left: 10px;
+    box-shadow: 0px 5px 10px 2px rgb(34 60 80 / 20%);
+    min-height: 425px;
+    position: sticky;
+    top: 10px;
+    left: 0;
+    padding: 5px;
 }
 
 .noteFormHeader {
@@ -110,23 +132,23 @@ h4 {
     margin-bottom: 20px;
 }
 
-input {
-    background-color: white;
-    font-size: 20px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 300px;
-    border: none;
-    border-radius: 5px;
-    border-bottom: 1px solid #757575;
-}
+    .group input {
+        background-color: white;
+        font-size: 20px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #757575;
+        margin-top: 40px;
+    }
 
     input:focus {
         outline: none;
     }
 
 /* LABEL ======================================= */
-label {
+    .group label {
     color: #999;
     font-size: 18px;
     font-weight: normal;
@@ -140,7 +162,7 @@ label {
 }
 
 /* active state */
-input:focus ~ label, input:valid ~ label {
+.group input:focus ~ label, input:valid ~ label {
     top: -20px;
     font-size: 14px;
     color: #5264AE;
@@ -150,7 +172,7 @@ input:focus ~ label, input:valid ~ label {
 .bar {
     position: relative;
     display: block;
-    width: 300px;
+    width: 100%;
 }
 
     .bar:before, .bar:after {
@@ -174,7 +196,7 @@ input:focus ~ label, input:valid ~ label {
     }
 
 /* active state */
-input:focus ~ .bar:before, input:focus ~ .bar:after {
+.group input:focus ~ .bar:before, input:focus ~ .bar:after {
     width: 50%;
 }
 
@@ -190,7 +212,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 }
 
 /* active state */
-input:focus ~ .highlight {
+.group input:focus ~ .highlight {
     -webkit-animation: inputHighlighter 0.3s ease;
     -moz-animation: inputHighlighter 0.3s ease;
     animation: inputHighlighter 0.3s ease;
@@ -230,19 +252,27 @@ input:focus ~ .highlight {
     }
 }
 
-.txta {
-    width: 100%;
-    height: 100px;
-    resize: none;
-    overflow: auto;
-    background-color: white;
-    color: #666666;
+.toolbar a{
+    display: inline-block;
+    border: 1px solid #888;
+    padding: 5px 8px;
+    margin: 0 5px 10px 0;
+    color: #000;
+    border-radius: 3px;
+    font-size: 15px;
+    box-shadow: 1px 1px 2px #ddd;
+    background: white;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+.editor {
+    min-height: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
     border-radius: 5px;
-    border: 2px solid transparent;
-    outline: none;
-    line-height: 1.4;
-    max-height: 500px;
-    box-sizing: border-box;
+    box-shadow: 1px 1px 2px #ddd;
+    background: white;
 }
 
 
